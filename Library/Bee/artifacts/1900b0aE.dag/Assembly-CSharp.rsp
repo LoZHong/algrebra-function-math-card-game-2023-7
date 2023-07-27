@@ -359,6 +359,7 @@
 -analyzer:"B:/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"B:/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Controlls/Control.cs"
+"Assets/Scipts/Description/SizeControl.cs"
 "Assets/Scipts/DetectingNum.cs"
 "Assets/Scipts/FormulaDecoder.cs"
 "Assets/Scipts/GameManager.cs"
