@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Maths.unity
     guid: a7f7b767cbd3601488843bc69c748527
+  - enabled: 1
+    path: Assets/Scenes/Description.unity
+    guid: 561932f52036f71439dbcb064821b481
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 074736fe04589e742886fb732dfa35f2, type: 2}

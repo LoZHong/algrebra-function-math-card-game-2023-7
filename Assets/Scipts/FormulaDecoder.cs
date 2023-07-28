@@ -13,7 +13,11 @@ public class FormulaDecoder : MonoBehaviour
         for (var i = 0; i < splitedFormula.Length; i++)
         {
             print(splitedFormula[i] + oriNum);
-            if(splitedFormula[i] == "2x")
+            if (splitedFormula[i] == "x^2")
+            {
+                oriNum = Convert.ToInt32(Math.Pow(oriNum, 2));
+            }
+            if (splitedFormula[i] == "2x")
             {
                 oriNum = oriNum * 2;
             }

@@ -10,6 +10,10 @@ public class LobbyManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void EnterDescription()
+    {
+        SceneManager.LoadScene(2);
+    }
 
     public void LeaveGame()
     {
