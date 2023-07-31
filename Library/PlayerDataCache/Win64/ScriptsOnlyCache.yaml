@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - LobbyManager
     - PausingGame
     - RollingDice
+    - SizeControl
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
@@ -38,6 +39,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
     Assembly-CSharp:
@@ -78,6 +82,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
+    - UnityEngine.UI.Scrollbar/ScrollEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
@@ -86,6 +92,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: LobbyManager
     methodName: LeaveGame
+  - assembly: Assembly-CSharp
+    fullTypeName: LobbyManager
+    methodName: EnterDescription
   - assembly: Assembly-CSharp
     fullTypeName: PausingGame
     methodName: OnPause
@@ -98,7 +107,80 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: PausingGame
     methodName: ReturnToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: PausingGame
+    methodName: OnPause
+  - assembly: Assembly-CSharp
+    fullTypeName: PausingGame
+    methodName: ReturnToMainMenu
   sceneClasses:
+    Assets/Scenes/Description.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1560}
+    - Class: 114
+      Script: {instanceID: 1606}
+    - Class: 114
+      Script: {instanceID: 2720}
+    - Class: 114
+      Script: {instanceID: 2930}
+    - Class: 114
+      Script: {instanceID: 3242}
+    - Class: 114
+      Script: {instanceID: 4090}
+    - Class: 114
+      Script: {instanceID: 4644}
+    - Class: 114
+      Script: {instanceID: 5316}
+    - Class: 114
+      Script: {instanceID: 5420}
+    - Class: 114
+      Script: {instanceID: 6024}
+    - Class: 114
+      Script: {instanceID: 6192}
+    - Class: 114
+      Script: {instanceID: 6546}
+    - Class: 114
+      Script: {instanceID: 6556}
+    - Class: 114
+      Script: {instanceID: 7008}
+    - Class: 114
+      Script: {instanceID: 7726}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/Lobby.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -139,15 +221,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4640}
     - Class: 114
-      Script: {instanceID: 5418}
+      Script: {instanceID: 5420}
     - Class: 114
-      Script: {instanceID: 6022}
+      Script: {instanceID: 6024}
     - Class: 114
-      Script: {instanceID: 6190}
+      Script: {instanceID: 6192}
     - Class: 114
-      Script: {instanceID: 6544}
+      Script: {instanceID: 6546}
     - Class: 114
-      Script: {instanceID: 7144}
+      Script: {instanceID: 7146}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -220,17 +302,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4644}
     - Class: 114
-      Script: {instanceID: 5418}
+      Script: {instanceID: 5420}
     - Class: 114
-      Script: {instanceID: 6022}
+      Script: {instanceID: 6024}
     - Class: 114
-      Script: {instanceID: 6190}
+      Script: {instanceID: 6192}
     - Class: 114
-      Script: {instanceID: 6534}
+      Script: {instanceID: 6536}
     - Class: 114
-      Script: {instanceID: 6544}
+      Script: {instanceID: 6546}
     - Class: 114
-      Script: {instanceID: 7006}
+      Script: {instanceID: 7008}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -606,7 +688,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: 7ad09388787e22c5b60896add78591be
+      Hash: ba15571c3f2fb201de37466b8bb8f892
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameManager
@@ -972,6 +1054,12 @@ ScriptsOnlyBuild:
     className: Toggle
   - hash:
       serializedVersion: 2
+      Hash: 81f7825fdc366e6fda409a7805e395c0
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SizeControl
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1128,7 +1216,7 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerStay2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: bd96997ba0476d9dc1be11edb3791247
+      Hash: f93ddf822d5c91e278bd690274384b5c
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: JsonReader
@@ -1508,4 +1596,5 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Lobby.unity
   - Assets/Scenes/Maths.unity
-  playerPath: D:/Ryan Leong/Documents/Unity Projects/#Builds/math card.exe
+  - Assets/Scenes/Description.unity
+  playerPath: C:/Users/H/Downloads/math card.exe
