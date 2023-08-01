@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     private bool done = false;
     private bool isdoneFormula = false;
 
-    public TMP_Text Steak;
+    public TMP_Text[] Steak;
 
     // Start is called before the first frame update
     void Start()
@@ -51,9 +51,8 @@ public class GameManager : MonoBehaviour
         FormulaArray = Json.Formulars.formulars;
         FmlGenerated = new string[3];
         UnityEngine.Debug.Log("here");
-
-        Steak.text = "Streak: " + Json.Formulars.steak.ToString();
-
+        UpdateStreak();
+        
         foreach(string Formula in FormulaArray) { UnityEngine.Debug.Log(Formula); }
     }
 
@@ -86,6 +85,10 @@ public class GameManager : MonoBehaviour
             if (Json.Formulars.steak > 0)
             {
                 Json.Formulars.steak -= 1;
+            }
+            else
+            {
+                Updateleaderboard();
             }
             GameOver();
             LosSc.SetActive(true);
@@ -137,7 +140,19 @@ public class GameManager : MonoBehaviour
     {
         done = true;
         Json.updateJson();
+        UpdateStreak();
 
     }
 
+    public void UpdateStreak()
+    {
+        foreach (TMP_Text steak in Steak)
+        {
+            steak.text = "Streak: " + Json.Formulars.steak.ToString();
+        }
+    }
+    public void Updateleaderboard()
+    {
+
+    }
 }

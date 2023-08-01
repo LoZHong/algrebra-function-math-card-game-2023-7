@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class PausingGame : MonoBehaviour
 {
+    public GameManager Manager;
 
     public GameObject PauseScreen;
     public InputAction InputAc;
+    public JsonReader Reader;
 
     bool isPause = false;
 
@@ -21,6 +23,8 @@ public class PausingGame : MonoBehaviour
 
     public void OnPause()
     {
+        Manager.UpdateStreak();
+
         if (isPause == false)
         {
             Time.timeScale = 0;
@@ -37,8 +41,11 @@ public class PausingGame : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        Reader.ClearStreak();
+
         UnityEngine.Debug.Log("Returning to main menu");
         SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 
     public void NextGame()

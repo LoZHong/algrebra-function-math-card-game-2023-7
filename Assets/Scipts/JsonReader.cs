@@ -59,4 +59,10 @@ public class JsonReader : MonoBehaviour
         File.WriteAllText(filePath, JsonUtility.ToJson(Formulars));
     }
 
+    public void ClearStreak()
+    {
+        Formulars.steak = 0;
+        updateJson();
+    }
+
 }
