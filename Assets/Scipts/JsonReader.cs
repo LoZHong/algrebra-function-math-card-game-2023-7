@@ -27,12 +27,12 @@ public class JsonReader : MonoBehaviour
     void Start()
     {
         filePath = Path.Combine(Application.persistentDataPath, "formula.json");
-        isPathExists();
+        isPathExists(filePath);
     }
 
-    public void isPathExists()
+    public void isPathExists(string FilePath)
     {
-        if (File.Exists(filePath)) { GeneratingFormulars(); }
+        if (File.Exists(FilePath)) { GeneratingFormulars(); }
         else { GeneratePath(); }
     }
 

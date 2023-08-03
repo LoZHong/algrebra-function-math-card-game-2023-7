@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text[] Steak;
 
+    [Header("LeaderBoard")]
+    public Leaderboard LeaderBoard;
+    public string[] leaderboard;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -151,6 +155,8 @@ public class GameManager : MonoBehaviour
             steak.text = "Streak: " + Json.Formulars.steak.ToString();
         }
     }
+
+
     public void Updateleaderboard()
     {
 

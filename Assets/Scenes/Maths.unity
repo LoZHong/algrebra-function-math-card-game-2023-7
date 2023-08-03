@@ -3306,6 +3306,7 @@ GameObject:
   - component: {fileID: 1925154725}
   - component: {fileID: 1925154726}
   - component: {fileID: 1925154727}
+  - component: {fileID: 1925154729}
   - component: {fileID: 1925154728}
   m_Layer: 0
   m_Name: Scripts
@@ -3417,6 +3418,8 @@ MonoBehaviour:
   - {fileID: 508618122}
   - {fileID: 675188311}
   - {fileID: 1779326418}
+  LeaderBoard: {fileID: 0}
+  leaderboard: []
 --- !u!114 &1925154727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3447,6 +3450,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6962504963230f4d8d2e81c07a62df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1925154729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925154722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3cc3c61f8a104d44b54e44189094c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Json: {fileID: 1925154727}
+  LeaderBoard: {fileID: 4900000, guid: 710cde44e3a0e3d40909a1f7e2932b29, type: 3}
+  jsonLeaderBoard: 
+  isDone: 0
 --- !u!1 &2074473623
 GameObject:
   m_ObjectHideFlags: 0
