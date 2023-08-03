@@ -9,10 +9,12 @@ public class LobbyManager : MonoBehaviour
     public void EnterGame()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1.0f;
     }
     public void EnterDescription()
     {
         SceneManager.LoadScene(2);
+        Time.timeScale = 1.0f;
     }
 
     public void LeaveGame()

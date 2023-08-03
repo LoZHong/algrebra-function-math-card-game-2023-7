@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
     public GameObject LosSc;
 
     private bool done = false;
+    private bool isdoneFormula = false;
+
+    public TMP_Text[] Steak;
 
     // Start is called before the first frame update
     void Start()
@@ -48,12 +51,20 @@ public class GameManager : MonoBehaviour
         FormulaArray = Json.Formulars.formulars;
         FmlGenerated = new string[3];
         UnityEngine.Debug.Log("here");
-
+        UpdateStreak();
+        
+        foreach(string Formula in FormulaArray) { UnityEngine.Debug.Log(Formula); }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Json.isDone == true && isdoneFormula == false)
+        {
+            Start();
+            isdoneFormula = true;
+        }
+
         Dice1Stop = RlDice.isStationary1;
         Dice2Stop = RlDice.isStationary2;
 
@@ -62,15 +73,25 @@ public class GameManager : MonoBehaviour
             UpdatePlayerCard();
         }
 
-        if (PlayerNum == EnemyNum && allDiceStop == true)
+        if (PlayerNum == EnemyNum && allDiceStop == true && done != true)
         {
             WinSc.SetActive(true);
-            done = true;
+            Json.Formulars.steak += 1;
+            GameOver();
+
         }
-        else if (PlayerNum > EnemyNum && allDiceStop == true)
+        else if (PlayerNum > EnemyNum && allDiceStop == true && done!=true)
         {
+            if (Json.Formulars.steak > 0)
+            {
+                Json.Formulars.steak -= 1;
+            }
+            else
+            {
+                Updateleaderboard();
+            }
+            GameOver();
             LosSc.SetActive(true);
-            done = true;
         }
 
     }
@@ -115,4 +136,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void GameOver()
+    {
+        done = true;
+        Json.updateJson();
+        UpdateStreak();
+
+    }
+
+    public void UpdateStreak()
+    {
+        foreach (TMP_Text steak in Steak)
+        {
+            steak.text = "Streak: " + Json.Formulars.steak.ToString();
+        }
+    }
+    public void Updateleaderboard()
+    {
+
+    }
 }
