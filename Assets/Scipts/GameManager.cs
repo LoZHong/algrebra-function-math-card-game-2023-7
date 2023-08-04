@@ -43,11 +43,6 @@ public class GameManager : MonoBehaviour
     private bool isdoneFormula = false;
 
     public TMP_Text[] Steak;
-
-    [Header("LeaderBoard")]
-    public Leaderboard LeaderBoard;
-    public string[] leaderboard;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -89,10 +84,6 @@ public class GameManager : MonoBehaviour
             if (Json.Formulars.steak > 0)
             {
                 Json.Formulars.steak -= 1;
-            }
-            else
-            {
-                Updateleaderboard();
             }
             GameOver();
             LosSc.SetActive(true);
@@ -154,11 +145,5 @@ public class GameManager : MonoBehaviour
         {
             steak.text = "Streak: " + Json.Formulars.steak.ToString();
         }
-    }
-
-
-    public void Updateleaderboard()
-    {
-
     }
 }
