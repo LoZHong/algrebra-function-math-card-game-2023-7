@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
     private bool done = false;
     private bool isdoneFormula = false;
 
+    [Header("AutoContinue")]
+    public float timing = 0f;
+    public bool isCountingDown = false;
+    public Slider[] Slider;
+
     public TMP_Text[] Steak;
     // Start is called before the first frame update
     void Start()
@@ -89,6 +94,21 @@ public class GameManager : MonoBehaviour
             LosSc.SetActive(true);
         }
 
+        if (timing >= 0 && isCountingDown != false)
+        {
+            timing -= Time.deltaTime;
+            UnityEngine.Debug.Log(timing);
+
+        }
+        else if (timing <= 0 && isCountingDown != false)
+        {
+            isCountingDown = false;
+            PsGame.NextGame();
+        }
+        foreach (Slider mslider in Slider)
+        {
+            mslider.value = timing;
+        }
     }
 
     void UpdatePlayerCard()
@@ -136,6 +156,7 @@ public class GameManager : MonoBehaviour
         done = true;
         Json.updateJson();
         UpdateStreak();
+        autoContinue();
 
     }
 
@@ -145,5 +166,19 @@ public class GameManager : MonoBehaviour
         {
             steak.text = "Streak: " + Json.Formulars.steak.ToString();
         }
+    }
+
+    
+
+    public void autoContinue()
+    {
+        if(isCountingDown == false)
+        {
+            timing += 5f;
+            isCountingDown = true;
+            UnityEngine.Debug.Log(timing);
+
+        }
+
     }
 }
