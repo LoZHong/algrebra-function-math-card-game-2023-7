@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -41,11 +42,24 @@ public class PausingGame : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        Reader.ClearStreak();
-
         UnityEngine.Debug.Log("Returning to main menu");
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
+        try
+        {
+            Reader.ClearStreak();
+        }
+        catch (Exception e)
+        {
+            UnityEngine.Debug.Log(e +  "fail");
+            throw;
+        }
+
+    }
+
+    public void GoUrl()
+    {
+        Application.OpenURL("https://www.dropbox.com/scl/fi/y5jfwiyhwqi640dqrtk9z/help_page.pptx?rlkey=ih17enefs2508i09un9lnob5n&dl=0");
     }
 
     public void NextGame()
