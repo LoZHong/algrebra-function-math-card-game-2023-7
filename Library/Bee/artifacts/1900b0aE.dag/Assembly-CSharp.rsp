@@ -362,6 +362,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Backgrounds/CharacterWolba.cs"
 "Assets/Cards/Controlls/Control.cs"
+"Assets/Scipts/Description/control height.cs"
 "Assets/Scipts/Description/UpdateHeight.cs"
 "Assets/Scipts/DetectingNum.cs"
 "Assets/Scipts/FormulaDecoder.cs"

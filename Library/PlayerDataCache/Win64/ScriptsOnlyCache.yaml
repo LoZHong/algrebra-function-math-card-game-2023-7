@@ -9,7 +9,8 @@ ScriptsOnlyBuild:
     - LobbyManager
     - PausingGame
     - RollingDice
-    - SizeControl
+    - UpdateHeight
+    - controlheight
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
@@ -43,6 +44,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
     Assembly-CSharp:
@@ -85,6 +87,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.ScrollRect/ScrollRectEvent
     - UnityEngine.UI.Scrollbar/ScrollEvent
+    - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
@@ -104,10 +107,16 @@ ScriptsOnlyBuild:
     methodName: NextGame
   - assembly: Assembly-CSharp
     fullTypeName: PausingGame
+    methodName: OnPause
+  - assembly: Assembly-CSharp
+    fullTypeName: PausingGame
     methodName: NextGame
   - assembly: Assembly-CSharp
     fullTypeName: PausingGame
     methodName: ReturnToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: PausingGame
+    methodName: GoUrl
   - assembly: Assembly-CSharp
     fullTypeName: PausingGame
     methodName: OnPause
@@ -140,37 +149,39 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1558}
+      Script: {instanceID: 16600}
     - Class: 114
-      Script: {instanceID: 1604}
+      Script: {instanceID: 16646}
     - Class: 114
-      Script: {instanceID: 2382}
+      Script: {instanceID: 17424}
     - Class: 114
-      Script: {instanceID: 2718}
+      Script: {instanceID: 17760}
     - Class: 114
-      Script: {instanceID: 2928}
+      Script: {instanceID: 17970}
     - Class: 114
-      Script: {instanceID: 3240}
+      Script: {instanceID: 18282}
     - Class: 114
-      Script: {instanceID: 3584}
+      Script: {instanceID: 18626}
     - Class: 114
-      Script: {instanceID: 4642}
+      Script: {instanceID: 19684}
     - Class: 114
-      Script: {instanceID: 5314}
+      Script: {instanceID: 19734}
     - Class: 114
-      Script: {instanceID: 5418}
+      Script: {instanceID: 20460}
     - Class: 114
-      Script: {instanceID: 6022}
+      Script: {instanceID: 21062}
     - Class: 114
-      Script: {instanceID: 6190}
+      Script: {instanceID: 21230}
     - Class: 114
-      Script: {instanceID: 6544}
+      Script: {instanceID: 21584}
     - Class: 114
-      Script: {instanceID: 6554}
+      Script: {instanceID: 21594}
     - Class: 114
-      Script: {instanceID: 7006}
+      Script: {instanceID: 22046}
     - Class: 114
-      Script: {instanceID: 7724}
+      Script: {instanceID: 22764}
+    - Class: 114
+      Script: {instanceID: 26194}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -211,33 +222,33 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1604}
+      Script: {instanceID: 16646}
     - Class: 114
-      Script: {instanceID: 2242}
+      Script: {instanceID: 17284}
     - Class: 114
-      Script: {instanceID: 2718}
+      Script: {instanceID: 17760}
     - Class: 114
-      Script: {instanceID: 2928}
+      Script: {instanceID: 17970}
     - Class: 114
-      Script: {instanceID: 3240}
+      Script: {instanceID: 18282}
     - Class: 114
-      Script: {instanceID: 4242}
+      Script: {instanceID: 19284}
     - Class: 114
-      Script: {instanceID: 4362}
+      Script: {instanceID: 19404}
     - Class: 114
-      Script: {instanceID: 4638}
+      Script: {instanceID: 19680}
     - Class: 114
-      Script: {instanceID: 5418}
+      Script: {instanceID: 20460}
     - Class: 114
-      Script: {instanceID: 6022}
+      Script: {instanceID: 21062}
     - Class: 114
-      Script: {instanceID: 6190}
+      Script: {instanceID: 21230}
     - Class: 114
-      Script: {instanceID: 6544}
+      Script: {instanceID: 21584}
     - Class: 114
-      Script: {instanceID: 7144}
+      Script: {instanceID: 22184}
     - Class: 114
-      Script: {instanceID: 37944}
+      Script: {instanceID: 23076}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -290,39 +301,41 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1558}
+      Script: {instanceID: 16600}
     - Class: 114
-      Script: {instanceID: 1604}
+      Script: {instanceID: 16646}
     - Class: 114
-      Script: {instanceID: 2494}
+      Script: {instanceID: 17536}
     - Class: 114
-      Script: {instanceID: 2614}
+      Script: {instanceID: 17656}
     - Class: 114
-      Script: {instanceID: 2718}
+      Script: {instanceID: 17760}
     - Class: 114
-      Script: {instanceID: 2928}
+      Script: {instanceID: 17970}
     - Class: 114
-      Script: {instanceID: 3240}
+      Script: {instanceID: 18282}
     - Class: 114
-      Script: {instanceID: 3584}
+      Script: {instanceID: 18626}
     - Class: 114
-      Script: {instanceID: 4112}
+      Script: {instanceID: 19154}
     - Class: 114
-      Script: {instanceID: 4642}
+      Script: {instanceID: 19684}
     - Class: 114
-      Script: {instanceID: 5418}
+      Script: {instanceID: 20376}
     - Class: 114
-      Script: {instanceID: 5826}
+      Script: {instanceID: 20460}
     - Class: 114
-      Script: {instanceID: 6022}
+      Script: {instanceID: 21062}
     - Class: 114
-      Script: {instanceID: 6190}
+      Script: {instanceID: 21230}
     - Class: 114
-      Script: {instanceID: 6534}
+      Script: {instanceID: 21574}
     - Class: 114
-      Script: {instanceID: 6544}
+      Script: {instanceID: 21584}
     - Class: 114
-      Script: {instanceID: 7006}
+      Script: {instanceID: 22046}
+    - Class: 114
+      Script: {instanceID: 24154}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -698,7 +711,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: 6c7e3d0c876026989f1f46cd7cb00cdc
+      Hash: f4510be1b7084ba55ceca38688085bc4
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameManager
@@ -932,6 +945,12 @@ ScriptsOnlyBuild:
     className: TMPro_InstructionOverlay
   - hash:
       serializedVersion: 2
+      Hash: 5e5aa749f5f477c66c94b2444b9ff6a9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: UpdateHeight
+  - hash:
+      serializedVersion: 2
       Hash: f6bf0fc71f5b6dfe19329b1c4df9fee0
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -1062,12 +1081,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Toggle
-  - hash:
-      serializedVersion: 2
-      Hash: 81f7825fdc366e6fda409a7805e395c0
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: SizeControl
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -1502,6 +1515,12 @@ ScriptsOnlyBuild:
     className: Variables
   - hash:
       serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CharacterWolba
+  - hash:
+      serializedVersion: 2
       Hash: 783de51efb343429d5d4c515cb889d12
     assemblyName: Assembly-CSharp
     namespaceName: 
@@ -1598,13 +1617,13 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
+      Hash: 81f7825fdc366e6fda409a7805e395c0
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: CharacterWolba
+    className: controlheight
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity
   - Assets/Scenes/Maths.unity
   - Assets/Scenes/Description.unity
-  playerPath: C:/Users/H/Downloads/546/math card.exe
+  playerPath: C:/Users/H/Downloads/v2.3/math card.exe

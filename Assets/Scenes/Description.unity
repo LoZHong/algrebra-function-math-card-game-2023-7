@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 10
+  m_ScrollSensitivity: 30
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 77493552}
@@ -1998,6 +1998,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1175509496}
+  - component: {fileID: 1175509501}
   - component: {fileID: 1175509498}
   - component: {fileID: 1175509499}
   - component: {fileID: 1175509500}
@@ -2086,6 +2087,9 @@ MonoBehaviour:
   PsGame: {fileID: 0}
   WinSc: {fileID: 0}
   LosSc: {fileID: 0}
+  timing: 0
+  isCountingDown: 0
+  Slider: []
   Steak: []
 --- !u!114 &1175509500
 MonoBehaviour:
@@ -2102,6 +2106,21 @@ MonoBehaviour:
   slides: []
   width: 0
   height: 0
+--- !u!114 &1175509501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175509495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a393fd72824b34c9f6989bb153b6e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Content: {fileID: 607758578}
+  Cards: 0
+  CardsHeight: 0
 --- !u!1 &1246916396
 GameObject:
   m_ObjectHideFlags: 0
